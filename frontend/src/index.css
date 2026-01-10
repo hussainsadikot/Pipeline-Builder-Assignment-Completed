@@ -1,0 +1,167 @@
+/* Body styling */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f8fafc;
+  /* Slate-50 styling */
+}
+
+/* --- Node Styling (Tailwind Lookalike) --- */
+.custom-node {
+  width: 200px;
+  height: auto;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  /* slate-300 */
+  border-radius: 8px;
+  /* rounded-lg */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  /* shadow-md */
+  transition: box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  min-height: 100px;
+}
+
+.custom-node:hover {
+  border-color: #6366f1;
+  /* indigo-500 */
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+  /* ring-2 */
+}
+
+.node-header {
+  padding: 8px 12px;
+  background-color: #f1f5f9;
+  /* slate-100 */
+  border-bottom: 1px solid #e2e8f0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-weight: 700;
+  color: #334155;
+  /* slate-700 */
+  font-size: 14px;
+}
+
+.node-content {
+  padding: 12px;
+  color: #475569;
+  /* slate-600 */
+  font-size: 13px;
+  flex-grow: 1;
+  /* આનાથી બોક્સ વધશે તો અંદરની જગ્યા પણ વધશે */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Handle (ટપકાં) Styling --- */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background: #64748b;
+  /* slate-500 */
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.react-flow__handle:hover {
+  background-color: #6366f1;
+  /* indigo-500 */
+  width: 12px;
+  height: 12px;
+}
+
+/* --- Submit Button Styling --- */
+.submit-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.submit-button {
+  background-color: #4f46e5;
+  /* indigo-600 */
+  color: white;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.25);
+}
+
+.submit-button:hover {
+  background-color: #4338ca;
+  /* indigo-700 */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(79, 70, 229, 0.3);
+}
+
+/* Handle Labels */
+.handle-label {
+  position: absolute;
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ટૂલબારનું કન્ટેનર: ઉપર ફિક્સ રહેશે અને મસ્ત દેખાશે */
+.toolbar-container {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 20px;
+  display: inline-block;
+  /* કન્ટેન્ટ જેટલી જ જગ્યા રોકશે */
+}
+
+/* ટૂલબારના બટનો */
+.draggable-node,
+/* જો તમે ક્લાસ વાપર્યો હોય */
+div[draggable="true"] {
+  /* અથવા જે પણ ડ્રેગ થઈ શકે તે */
+  cursor: grab;
+  min-width: 80px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  /* slate-300 */
+  border-radius: 6px;
+  color: #475569;
+  /* slate-600 */
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* માઉસ લઈ જતા જે ઈફેક્ટ આવશે */
+.draggable-node:hover,
+div[draggable="true"]:hover {
+  border-color: #6366f1;
+  /* indigo-500 */
+  color: #6366f1;
+  background-color: #eef2ff;
+  /* indigo-50 (આછું જાંબલી) */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
+}
+
+/* ડ્રેગ કરતી વખતે */
+.draggable-node:active,
+div[draggable="true"]:active {
+  cursor: grabbing;
+}
