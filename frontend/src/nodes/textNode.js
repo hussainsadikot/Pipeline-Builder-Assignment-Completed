@@ -56,7 +56,7 @@ export const TextNode = ({ id, data }) => {
       const handlesHeight = headerOffset + (matches.length * rowHeight) + 30;
 
       // ટેક્સ્ટ અથવા લિસ્ટ, જે મોટું હોય તેટલી હાઈટ
-      const finalHeight = Math.max(contentHeight + 40, handlesHeight, 180);
+      const finalHeight = Math.max(contentHeight + 95, handlesHeight, 180);
 
       setNodeHeight(finalHeight);
       textareaRef.current.style.height = `${contentHeight}px`;
