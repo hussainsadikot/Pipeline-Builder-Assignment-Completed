@@ -1,5 +1,7 @@
+// frontend/src/nodes/noteNode.js
 import { useState } from 'react';
 import { BaseNode } from './BaseNode';
+// import { Position } from 'reactflow';
 
 export const NoteNode = ({ id, data }) => {
     const [text, setText] = useState(data?.text || '');
@@ -12,35 +14,49 @@ export const NoteNode = ({ id, data }) => {
         <BaseNode
             id={id}
             data={data}
-            title="Sticky Note"
-            handles={[]} // સ્ટીકી નોટને ટપકાં ન હોય
+            title="Sticky Note" // હેડરનું નામ
+            handles={[
+                // Note ને સામાન્ય રીતે હેન્ડલ નથી હોતા, પણ જો જોઈતા હોય તો જ રાખજો
+                // અત્યારે મેં ખાલી રાખ્યા છે, તમે ઉમેરી શકો છો
+            ]}
             style={{
-                backgroundColor: '#feff9c',
-                // મહત્વનું: અહીં resize આપ્યું છે એટલે આખું બોક્સ ખેંચાશે
-                width: '200px',
-                height: '150px',
-                resize: 'both',
-                overflow: 'hidden',
+                // 1. Sticky Note જેવો પીળો કલર
+                background: '#fef3c7',
+                borderColor: '#f59e0b',
+                width: '100%',
+                height: '100%'
             }}
         >
-            <textarea
-                className="nodrag"
-                value={text}
-                onChange={handleChange}
-                placeholder="Type note..."
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    resize: 'none', // અંદરના બોક્સને ડબલ resize ન કરવું પડે
-                    backgroundColor: 'transparent',
-                    border: 'none',
-                    outline: 'none',
-                    fontFamily: 'cursive',
-                    fontSize: '14px',
-                    color: '#333',
-                    overflow: 'auto' // લખાણ વધે તો સ્ક્રોલ આવે
-                }}
-            />
+            <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <div style={{
+                    color: '#b45309',
+                    fontSize: '11px',
+                    marginBottom: '5px',
+                    fontWeight: '600'
+                }}>
+                    Type note...
+                </div>
+
+                <textarea
+                    className="nodrag" // આ ક્લાસ જરૂરી છે જેથી લખતી વખતે નોડ ડ્રેગ ન થાય
+                    value={text}
+                    onChange={handleChange}
+                    style={{
+                        // --- આ તમારું સોલ્યુશન છે ---
+                        resize: 'both', // આનાથી ખૂણામાં લીટીઓ આવશે અને તમે ખેંચી શકશો
+
+                        width: '100%',
+                        height: '100%',
+                        background: 'transparent',
+                        border: 'none',
+                        outline: 'none',
+                        fontFamily: 'cursive', // અથવા 'sans-serif', હાથથી લખ્યું હોય તેવું લાગે
+                        fontSize: '14px',
+                        color: '#451a03',
+                        overflow: 'auto' // જરૂર પડે તો સ્ક્રોલબાર
+                    }}
+                />
+            </div>
         </BaseNode>
     );
 };

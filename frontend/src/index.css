@@ -165,3 +165,33 @@ div[draggable="true"]:hover {
 div[draggable="true"]:active {
   cursor: grabbing;
 }
+
+.react-flow__node {
+  overflow: visible !important;
+}
+
+.react-flow__node-text {
+  overflow: visible !important;
+}
+
+.react-flow__node,
+.react-flow__node-text,
+.react-flow__node-default,
+.react-flow__node-input,
+.react-flow__node-output,
+.custom-node {
+  overflow: visible !important;
+}
+
+.react-flow__node {
+  overflow: visible !important;
+}
+
+/* હેન્ડલ ઉપર માઉસ લઈ જતા કલર બદલાય */
+.react-flow__handle:hover {
+  background-color: #6366f1 !important;
+  /* Blue color */
+  border-color: #6366f1 !important;
+  width: 12px !important;
+  height: 12px !important;
+}
